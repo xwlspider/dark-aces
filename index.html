@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Dark Aces</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Dark Aces: equipo de voleibol inspirado en Haikyuu!!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏐</text></svg>">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<div id="splash"><div>
+  <svg viewBox="0 0 100 100" aria-hidden="true"><defs><clipPath id="bc"><circle cx="50" cy="50" r="44"/></clipPath></defs>
+  <circle cx="50" cy="50" r="44" fill="#fff"/><g clip-path="url(#bc)" fill="none" stroke="#0a0a0a" stroke-width="2.2" stroke-linecap="round"><path d="M52.8 42.5Q48.7 20.0 20.5 12.1"/><path d="M56.9 46.0Q63.3 23.1 35.1 4.4"/><path d="M55.1 56.1Q76.6 63.9 97.5 43.4"/><path d="M50.0 58.0Q66.6 75.0 97.0 59.9"/><path d="M42.1 51.4Q24.7 66.1 31.9 94.5"/><path d="M43.1 46.0Q20.1 51.9 17.9 85.7"/></g>
+  <circle cx="50" cy="50" r="44" fill="none" stroke="#0a0a0a" stroke-width="2.4"/></svg>
+  <h1>Dark Aces</h1><p>¡EL BALÓN NO TOCA EL SUELO!</p>
+</div></div>
+
+<header><div class="bar">
+  <a class="logo disp" href="#mision">🏐 Dark Aces <span id="adminBadge" class="badge hide">ADMIN</span></a>
+  <nav><a href="#mision">Misión y Visión</a><a href="#novedades">Novedades</a><a href="#estadisticas">Estadísticas</a></nav>
+  <button class="btn o" id="loginBtn">🔒 Iniciar sesión</button>
+</div></header>
+
+<main>
+  <div class="hero" id="mision">
+    <h2>Dark Aces</h2>
+    <p>Un equipo de voleibol que nace en la sombra y se eleva sobre la red. Como los cuervos, caemos, nos levantamos y volvemos a volar.</p>
+  </div>
+  <div class="divider disp">“Mientras el balón siga en el aire, el partido sigue vivo.”</div>
+  <section>
+    <h2 class="sec-title">Misión y Visión</h2>
+    <div class="grid">
+      <div class="box"><h3>Misión</h3><p>Formar jugadores que entrenen con disciplina y compañerismo, que valoren cada punto y entiendan que el voleibol se gana en equipo: cada saque, recepción y colocación es parte de un mismo vuelo.</p></div>
+      <div class="box"><h3>Visión</h3><p>Ser un equipo referente por su espíritu de superación, capaz de competir contra cualquiera y de inspirar a nuevas generaciones a saltar más alto, sin miedo al bloqueo.</p></div>
+    </div>
+    <div class="vals">
+      <div><b>Vuela</b><span>Ambición para superar cualquier techo.</span></div>
+      <div><b>Conexión</b><span>El balón pasa por todos, nadie juega solo.</span></div>
+      <div><b>Resiliencia</b><span>Cada caída es impulso para el siguiente salto.</span></div>
+      <div><b>Cerebro</b><span>Leer el juego vale tanto como golpear fuerte.</span></div>
+    </div>
+  </section>
+
+  <section id="novedades" class="sec-border">
+    <h2 class="sec-title">Novedades</h2>
+    <div class="tools hide" id="newsTools"><button class="btn">+ Nueva novedad</button></div>
+    <div class="grid" id="newsList"></div>
+  </section>
+
+  <section id="estadisticas" class="sec-border">
+    <h2 class="sec-title">Estadísticas</h2>
+    <div class="tools hide" id="playerTools"><button class="btn">+ Nuevo jugador</button></div>
+    <div class="grid players" id="playerList"></div>
+    <div class="pager hide" id="playerPager"></div>
+  </section>
+</main>
+
+<footer><div class="disp">Dark Aces</div><p>Inspirado en el espíritu de Haikyuu!! · Volar es de todos.</p></footer>
+
+<dialog id="dlgPlayer"><form method="dialog" id="fPlayer">
+  <h3 id="dpTitle">Jugador</h3>
+  <label>Foto del avatar</label><input type="file" id="pFile" accept="image/*">
+  <label>Nombre</label><input id="pName" required maxlength="40">
+  <div class="row">
+    <div><label>Personaje que usa</label><input id="pChar" maxlength="40" placeholder="Ej. Hinata"></div>
+    <div><label>Posición</label><select id="pPos"></select></div>
+  </div>
+  <div class="row" id="statInputs"></div>
+  <div class="dlg-actions"><button class="btn" value="save">Guardar</button><button class="btn o" value="cancel" formnovalidate>Cancelar</button></div>
+</form></dialog>
+
+<dialog id="dlgNews"><form method="dialog" id="fNews">
+  <h3>Novedad</h3>
+  <label>Título</label><input id="nTitle" required maxlength="80">
+  <label>Texto</label><textarea id="nText" rows="5" required maxlength="600"></textarea>
+  <div class="dlg-actions"><button class="btn" value="save">Publicar</button><button class="btn o" value="cancel" formnovalidate>Cancelar</button></div>
+</form></dialog>
+
+<dialog id="dlgLogin"><form method="dialog" id="fLogin">
+  <h3>Acceso admin</h3>
+  <p class="char" style="margin-bottom:.5rem">Solo para el administrador del equipo.</p>
+  <label>Correo</label><input id="lEmail" type="email" required autocomplete="username">
+  <label>Contraseña</label><input id="lPass" type="password" required autocomplete="current-password">
+  <div class="dlg-actions"><button class="btn" value="go">Entrar</button><button class="btn o" value="cancel" formnovalidate>Cancelar</button></div>
+</form></dialog>
+
+<div id="fatal" class="hide" role="alert"></div>
+<script>
+(function(){var b=document.getElementById("fatal");
+function show(m){b.textContent=m;b.classList.remove("hide")}
+if(location.protocol==="file:")show("Abriste el archivo con doble clic: los módulos JS no funcionan así. Usa Live Server (VS Code), `npx serve` o publícalo en un hosting.");
+addEventListener("error",function(e){show("Error al cargar la página: "+(e.message||(e.target&&(e.target.src||e.target.href))||"abre la consola (F12) para ver el detalle."))},true);
+addEventListener("unhandledrejection",function(e){show("Error: "+((e.reason&&e.reason.message)||e.reason))});
+})();
+</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

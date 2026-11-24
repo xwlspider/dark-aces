@@ -1,0 +1,5 @@
+/* Design tokens: blanco y negro (claro / oscuro) */
+:root{--bg:#fff;--fg:#0a0a0a;--mut:#6b6b6b;--line:#d4d4d4;--card:#f4f4f4;--inv:#0a0a0a;--invt:#fff;
+  --font-disp:Impact,"Arial Narrow Bold","Arial Black",sans-serif;--font-body:"Segoe UI",system-ui,sans-serif;
+  --maxw:1100px;--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg:#0a0a0a;--fg:#f5f5f5;--mut:#9a9a9a;--line:#2e2e2e;--card:#151515;--inv:#f5f5f5;--invt:#0a0a0a;color-scheme:dark}}
